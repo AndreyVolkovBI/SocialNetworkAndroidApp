@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView(ArrayList<PlaceholderPosts> posts) {
+        posts.add(0, new PlaceholderPosts());
         RecyclerNewsFeedAdapter adapter = new RecyclerNewsFeedAdapter(getApplicationContext(), posts);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

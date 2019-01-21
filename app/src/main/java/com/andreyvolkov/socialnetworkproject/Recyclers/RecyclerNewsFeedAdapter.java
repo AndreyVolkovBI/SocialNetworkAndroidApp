@@ -19,7 +19,8 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
     private Context context;
     private ArrayList<PlaceholderPosts> placeholderPosts = new ArrayList<>();
 
-    private boolean isFirst = true;
+    private final int TYPE_ITEM_BUTTON = 0;
+    private final int TYPE_ITEM_POST = 1;
 
     public RecyclerNewsFeedAdapter(Context context, ArrayList<PlaceholderPosts> placeholderPosts) {
         this.placeholderPosts = placeholderPosts;
@@ -33,28 +34,43 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
         View view;
         ViewHolder holder;
 
-        if (isFirst) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_post_button, parent, false);
-            holder = new ViewHolder(view);
-        } else {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
-            holder = new ViewHolder(view);
+        switch (viewType){
+            case TYPE_ITEM_BUTTON:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.add_post_button, parent, false);
+                holder = new ViewHolder(view);
+                break;
+            case TYPE_ITEM_POST:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
+                holder = new ViewHolder(view);
+                break;
+            default:
+                holder = null;
         }
-
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        if (!isFirst){
-            holder.postItemUserId.setText(placeholderPosts.get(position).getId().toString());
-            holder.postItemTitle.setText(placeholderPosts.get(position).getTitle());
-            holder.postItemContent.setText(placeholderPosts.get(position).getBody());
-        } else {
-            isFirst = false;
+
+        switch (getItemViewType(position)) {
+            case TYPE_ITEM_POST:
+                String userId = context.getResources().getString(R.string.post_item_user_id) + " "
+                        + String.valueOf(placeholderPosts.get(position).getId());
+                holder.postItemUserId.setText(userId);
+                holder.postItemTitle.setText(placeholderPosts.get(position).getTitle());
+                holder.postItemContent.setText(placeholderPosts.get(position).getBody());
+            case TYPE_ITEM_BUTTON:
+                break;
         }
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0)
+            return TYPE_ITEM_BUTTON;
+        else
+            return TYPE_ITEM_POST;
+    }
 
     @Override
     public int getItemCount() {

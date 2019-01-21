@@ -3,26 +3,37 @@
     android:id="@+id/post_item_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="10dp"
+    android:background="@drawable/rounded_add_post_button">
 
     <TextView
         android:id="@+id/post_item_user_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorBlack"
-        android:text="Пользователь номер: " />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentRight="true"
+        android:text="Id: 1" />
 
     <TextView
         android:id="@+id/post_item_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorBlack" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:text="Название поста" />
 
     <TextView
         android:id="@+id/post_item_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorBlack" />
+        android:layout_below="@+id/post_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorWhite"
+        android:text="Текст поста" />
 
 
 </RelativeLayout>
