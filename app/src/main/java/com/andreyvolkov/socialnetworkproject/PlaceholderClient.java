@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 public interface PlaceholderClient {
 
     @GET("/posts")
-    Call<List<PlaceholderRepo>> reposForPlaceholder();
+    Call<List<PlaceholderPosts>> reposForPlaceholder();
 
 }

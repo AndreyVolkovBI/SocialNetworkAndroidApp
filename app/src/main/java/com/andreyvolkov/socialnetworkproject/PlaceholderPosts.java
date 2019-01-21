@@ -1,6 +1,6 @@
 package com.andreyvolkov.socialnetworkproject;
 
-public class PlaceholderRepo {
+public class PlaceholderPosts {
 
     private Integer userId;
     private Integer id;

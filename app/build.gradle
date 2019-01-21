@@ -42,5 +42,11 @@ dependencies {
     // JSON Converter
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
+    // Google support library
+    implementation 'com.android.support:support-compat:28.0.0'
+
+    // Google recycler view
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
 
 }
