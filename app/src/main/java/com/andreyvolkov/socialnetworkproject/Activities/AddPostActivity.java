@@ -1,7 +1,9 @@
-package com.andreyvolkov.socialnetworkproject;
+package com.andreyvolkov.socialnetworkproject.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.andreyvolkov.socialnetworkproject.R;
 
 public class AddPostActivity extends AppCompatActivity {
 

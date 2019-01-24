@@ -1,4 +1,4 @@
-package com.andreyvolkov.socialnetworkproject;
+package com.andreyvolkov.socialnetworkproject.Retrofit;
 
 public class PlaceholderPosts {
 
