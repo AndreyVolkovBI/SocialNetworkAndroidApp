@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SocialNetworkProject</string>
 
-    <string name="post_item_user_id">Id:</string>
+    <string name="recycler_news_feed_post_item_user_id">Id:</string>
     <string name="add_post_button_text">Add post</string>
+
+    <string name="recycler_comments_text">Comment Id:</string>
 
     <!--Activity Add Post-->
     <string name="add_post_post_id">Id поста</string>

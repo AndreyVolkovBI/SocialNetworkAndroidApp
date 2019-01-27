@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/comment_item_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="10dp"
+    android:background="@drawable/rounded_add_post_button">
+
+    <TextView
+        android:id="@+id/comment_item_post_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentRight="true"
+        android:text="Comment Id: 1" />
+
+    <TextView
+        android:id="@+id/comment_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:text="Название комментария" />
+
+    <TextView
+        android:id="@+id/comment_item_email"
+        android:layout_below="@+id/comment_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorWhite"
+        android:text="Email комментария" />
+
+    <TextView
+        android:id="@+id/comment_item_body"
+        android:layout_below="@+id/comment_item_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorWhite"
+        android:text="Тело комментария" />
+
+
+</RelativeLayout>

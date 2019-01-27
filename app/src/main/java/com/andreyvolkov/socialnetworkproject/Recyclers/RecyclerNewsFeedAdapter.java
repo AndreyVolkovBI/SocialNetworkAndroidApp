@@ -58,7 +58,7 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
 
         switch (getItemViewType(position)) {
             case TYPE_ITEM_POST:
-                final String userId = context.getResources().getString(R.string.post_item_user_id) + " "
+                final String userId = context.getResources().getString(R.string.recycler_news_feed_post_item_user_id) + " "
                         + String.valueOf(placeholderPosts.get(position).getId());
                 holder.postItemUserId.setText(userId);
                 holder.postItemTitle.setText(placeholderPosts.get(position).getTitle());
