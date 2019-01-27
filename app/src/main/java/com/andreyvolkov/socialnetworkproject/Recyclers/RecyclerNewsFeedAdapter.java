@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.andreyvolkov.socialnetworkproject.Activities.AddPostActivity;
+import com.andreyvolkov.socialnetworkproject.Activities.MainActivity;
 import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
 import com.andreyvolkov.socialnetworkproject.R;
 
@@ -20,14 +21,16 @@ import java.util.ArrayList;
 public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFeedAdapter.ViewHolder> {
 
     private Context context;
+    private MainActivity mainActivity;
     private ArrayList<PlaceholderPosts> placeholderPosts = new ArrayList<>();
 
     private final int TYPE_ITEM_BUTTON = 0;
     private final int TYPE_ITEM_POST = 1;
 
-    public RecyclerNewsFeedAdapter(Context context, ArrayList<PlaceholderPosts> placeholderPosts) {
+    public RecyclerNewsFeedAdapter(Context context, MainActivity mainActivity, ArrayList<PlaceholderPosts> placeholderPosts) {
         this.placeholderPosts = placeholderPosts;
         this.context = context;
+        this.mainActivity = mainActivity;
     }
 
     @NonNull
@@ -67,8 +70,7 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
                 holder.addPostButtonLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent i = new Intent(context, AddPostActivity.class);
-                        context.startActivity(i);
+                        mainActivity.startAddPostActivityFromRecyclerView();
                     }
                 });
                 break;

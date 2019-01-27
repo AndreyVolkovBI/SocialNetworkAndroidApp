@@ -1,5 +1,6 @@
 package com.andreyvolkov.socialnetworkproject.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,7 +35,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     @Override
     public void initRecyclerView(ArrayList<PlaceholderPosts> posts) {
-        RecyclerNewsFeedAdapter adapter = new RecyclerNewsFeedAdapter(getApplicationContext(), posts);
+        RecyclerNewsFeedAdapter adapter = new RecyclerNewsFeedAdapter(getApplicationContext(), this, posts);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
@@ -42,5 +43,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void showMessage(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        onBackPressed();
+    }
+
+    public void startAddPostActivityFromRecyclerView() {
+        Intent i = new Intent(getApplicationContext(), AddPostActivity.class);
+        startActivity(i);
     }
 }

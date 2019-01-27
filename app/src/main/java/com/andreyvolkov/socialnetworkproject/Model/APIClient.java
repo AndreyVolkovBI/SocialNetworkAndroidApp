@@ -1,6 +1,7 @@
 package com.andreyvolkov.socialnetworkproject.Model;
 
-import com.andreyvolkov.socialnetworkproject.Callbacks.ViewCallback;
+import com.andreyvolkov.socialnetworkproject.Callbacks.AddPostActivityCallback;
+import com.andreyvolkov.socialnetworkproject.Callbacks.MainActivityCallback;
 import com.andreyvolkov.socialnetworkproject.Retrofit.AddPost;
 import com.andreyvolkov.socialnetworkproject.Retrofit.AddPostClient;
 import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderClient;
@@ -18,12 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    private ViewCallback callback;
-
-    public APIClient(MainPresenter mainPresenter) {
-        this.callback = mainPresenter;
-    }
-
+    private MainActivityCallback mainCallback;
+    private AddPostActivityCallback addCallback;
     private String BASE_URL = "http://jsonplaceholder.typicode.com/";
 
     private Retrofit.Builder builder = new Retrofit.Builder()
@@ -31,6 +28,14 @@ public class APIClient {
             .addConverterFactory(GsonConverterFactory.create());
 
     private Retrofit retrofit = builder.build();
+
+    public APIClient(MainActivityCallback callback) {
+        this.mainCallback = callback;
+    }
+
+    public APIClient(AddPostActivityCallback callback){
+        this.addCallback = callback;
+    }
 
     public void getPosts(){
 
@@ -43,31 +48,32 @@ public class APIClient {
                 List<PlaceholderPosts> posts = response.body();
                 assert posts != null;
                 posts.add(0, new PlaceholderPosts());
-                callback.returnValue((ArrayList<PlaceholderPosts>) posts);
+                mainCallback.onSuccess((ArrayList<PlaceholderPosts>) posts);
             }
 
             @Override
             public void onFailure(Call<List<PlaceholderPosts>> call, Throwable t) {
-                callback.showMessage("Произошла ошибка при запросе к серверу!");
+                mainCallback.onError("Произошла ошибка при запросе к серверу!");
             }
         });
     }
 
-    private void postPost() {
+    public void postPost(String id, String title, String content) {
         AddPostClient client = retrofit.create(AddPostClient.class);
-        Call<AddPost> call = client.postToAdd();
+        String body = "title='" + title + "', body='" + content + "', userId=" + id + "}";
+        Call<AddPost> call = client.postToAdd(body);
 
         call.enqueue(new Callback<AddPost>() {
             @Override
             public void onResponse(Call<AddPost> call, Response<AddPost> response) {
-                callback.showMessage("Пост успешно отправлен!");
+                AddPost post = response.body();
+                addCallback.onSuccess("Пост успешно отправлен!");
             }
 
             @Override
             public void onFailure(Call<AddPost> call, Throwable t) {
-                callback.showMessage("Пост не был отправлен на сервер!");
+                addCallback.onError("Пост не был отправлен на сервер!");
             }
         });
-
     }
 }

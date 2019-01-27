@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Id поста"
+            android:text="@string/add_post_post_id"
             android:textColor="@color/colorBlack" />
 
         <EditText
@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Название поста"
+            android:text="@string/add_post_post_name"
             android:textColor="@color/colorBlack" />
 
         <EditText
@@ -40,7 +40,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Содержание поста"
+            android:text="@string/add_post_post_content"
             android:textColor="@color/colorBlack" />
 
         <EditText
@@ -48,6 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack" />
+
+        <Button
+            android:id="@+id/add_post_send_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_post_send_button" />
 
     </LinearLayout>
 

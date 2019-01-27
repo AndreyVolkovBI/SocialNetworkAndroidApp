@@ -3,4 +3,11 @@
 
     <string name="post_item_user_id">Id:</string>
     <string name="add_post_button_text">Add post</string>
+
+    <!--Activity Add Post-->
+    <string name="add_post_post_id">Id поста</string>
+    <string name="add_post_post_name">Название поста</string>
+    <string name="add_post_post_content">Содержание поста</string>
+    <string name="add_post_send_button">Отправить</string>
+
 </resources>

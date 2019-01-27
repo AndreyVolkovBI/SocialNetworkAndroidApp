@@ -4,7 +4,7 @@ import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
 
 import java.util.ArrayList;
 
-public interface ViewCallback {
-    void returnValue(ArrayList<PlaceholderPosts> posts);
-    void showMessage(String message);
+public interface AddPostActivityCallback {
+    void onSuccess(String message);
+    void onError(String message);
 }
