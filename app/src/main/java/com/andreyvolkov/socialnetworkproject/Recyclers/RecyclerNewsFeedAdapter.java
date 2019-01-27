@@ -2,7 +2,6 @@ package com.andreyvolkov.socialnetworkproject.Recyclers;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +10,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.andreyvolkov.socialnetworkproject.Activities.AddPostActivity;
 import com.andreyvolkov.socialnetworkproject.Activities.MainActivity;
-import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
+import com.andreyvolkov.socialnetworkproject.Retrofit.Entity.PlaceholderPosts;
 import com.andreyvolkov.socialnetworkproject.R;
 
 import java.util.ArrayList;
@@ -60,11 +58,17 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
 
         switch (getItemViewType(position)) {
             case TYPE_ITEM_POST:
-                String userId = context.getResources().getString(R.string.post_item_user_id) + " "
+                final String userId = context.getResources().getString(R.string.post_item_user_id) + " "
                         + String.valueOf(placeholderPosts.get(position).getId());
                 holder.postItemUserId.setText(userId);
                 holder.postItemTitle.setText(placeholderPosts.get(position).getTitle());
                 holder.postItemContent.setText(placeholderPosts.get(position).getBody());
+                holder.postItemLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mainActivity.startCommentActivityFromRecyclerViewByPostId(placeholderPosts.get(position).getId());
+                    }
+                });
                 break;
             case TYPE_ITEM_BUTTON:
                 holder.addPostButtonLayout.setOnClickListener(new View.OnClickListener() {
@@ -92,17 +96,21 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
 
 public class ViewHolder extends RecyclerView.ViewHolder {
 
+    RelativeLayout addPostButtonLayout;
+
     TextView postItemUserId;
     TextView postItemTitle;
     TextView postItemContent;
-    RelativeLayout addPostButtonLayout;
+    RelativeLayout postItemLayout;
 
     public ViewHolder(View itemView) {
         super(itemView);
         addPostButtonLayout = itemView.findViewById(R.id.add_post_button_layout);
+
         postItemUserId = itemView.findViewById(R.id.post_item_user_id);
         postItemTitle = itemView.findViewById(R.id.post_item_title);
         postItemContent = itemView.findViewById(R.id.post_item_content);
+        postItemLayout = itemView.findViewById(R.id.post_item_layout);
     }
 }
 }

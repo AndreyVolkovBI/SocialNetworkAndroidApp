@@ -3,7 +3,7 @@ package com.andreyvolkov.socialnetworkproject.Presenter;
 import com.andreyvolkov.socialnetworkproject.Callbacks.MainActivityCallback;
 import com.andreyvolkov.socialnetworkproject.MainView;
 import com.andreyvolkov.socialnetworkproject.Model.APIClient;
-import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
+import com.andreyvolkov.socialnetworkproject.Retrofit.Entity.PlaceholderPosts;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 

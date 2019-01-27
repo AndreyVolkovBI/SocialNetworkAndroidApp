@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.andreyvolkov.socialnetworkproject.MainView;
-import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
+import com.andreyvolkov.socialnetworkproject.Retrofit.Entity.PlaceholderPosts;
 import com.andreyvolkov.socialnetworkproject.Presenter.MainPresenter;
 import com.andreyvolkov.socialnetworkproject.R;
 import com.andreyvolkov.socialnetworkproject.Recyclers.RecyclerNewsFeedAdapter;
@@ -43,11 +43,16 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void showMessage(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        onBackPressed();
     }
 
     public void startAddPostActivityFromRecyclerView() {
         Intent i = new Intent(getApplicationContext(), AddPostActivity.class);
+        startActivity(i);
+    }
+
+    public void startCommentActivityFromRecyclerViewByPostId(Integer postId) {
+        Intent i = new Intent(getApplicationContext(), CommentsActivity.class);
+        i.putExtra("postId", postId);
         startActivity(i);
     }
 }

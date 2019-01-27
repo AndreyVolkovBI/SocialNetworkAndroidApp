@@ -1,18 +1,13 @@
-package com.andreyvolkov.socialnetworkproject.Retrofit;
+package com.andreyvolkov.socialnetworkproject.Retrofit.Entity;
 
-public class PlaceholderPosts {
+public class AddPost {
 
     private Integer userId;
-    private Integer id;
     private String title;
     private String body;
 
     public Integer getUserId() {
         return userId;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getTitle() {

@@ -1,6 +1,6 @@
 package com.andreyvolkov.socialnetworkproject.Callbacks;
 
-import com.andreyvolkov.socialnetworkproject.Retrofit.PlaceholderPosts;
+import com.andreyvolkov.socialnetworkproject.Retrofit.Entity.PlaceholderPosts;
 
 import java.util.ArrayList;
 
