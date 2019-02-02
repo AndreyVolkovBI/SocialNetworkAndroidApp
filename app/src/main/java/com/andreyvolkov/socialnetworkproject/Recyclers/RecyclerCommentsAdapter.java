@@ -21,13 +21,11 @@ import java.util.ArrayList;
 public class RecyclerCommentsAdapter extends RecyclerView.Adapter<RecyclerCommentsAdapter.ViewHolder> {
 
     private Context context;
-    private CommentsActivity commentsActivity;
     private ArrayList<PlaceholderComments> placeholderComments;
 
-    public RecyclerCommentsAdapter(Context context, CommentsActivity commentsActivity, ArrayList<PlaceholderComments> placeholderComments) {
+    public RecyclerCommentsAdapter(Context context, ArrayList<PlaceholderComments> placeholderComments) {
         this.placeholderComments = placeholderComments;
         this.context = context;
-        this.commentsActivity = commentsActivity;
     }
 
     @NonNull

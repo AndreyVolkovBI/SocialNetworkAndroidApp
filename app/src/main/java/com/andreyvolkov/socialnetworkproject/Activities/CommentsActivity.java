@@ -41,7 +41,7 @@ public class CommentsActivity extends MvpAppCompatActivity implements CommentsVi
 
     @Override
     public void initRecyclerView(ArrayList<PlaceholderComments> comments) {
-        RecyclerCommentsAdapter adapter = new RecyclerCommentsAdapter(getApplicationContext(), this, comments);
+        RecyclerCommentsAdapter adapter = new RecyclerCommentsAdapter(getApplicationContext(), comments);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }

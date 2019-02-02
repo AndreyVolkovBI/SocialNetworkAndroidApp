@@ -13,6 +13,8 @@ import com.andreyvolkov.socialnetworkproject.Retrofit.Entity.PlaceholderPosts;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +27,9 @@ public class APIClient {
     private AddPostActivityCallback addCallback;
     private CommentsCallback commentsCallback;
 
+    @Inject
+    public APIClient() {}
+
     private String BASE_URL = "http://jsonplaceholder.typicode.com/";
 
     private Retrofit.Builder builder = new Retrofit.Builder()
@@ -33,15 +38,15 @@ public class APIClient {
 
     private Retrofit retrofit = builder.build();
 
-    public APIClient(MainActivityCallback callback) {
+    public void setAPIClient(MainActivityCallback callback) {
         this.mainCallback = callback;
     }
 
-    public APIClient(AddPostActivityCallback callback){
+    public void setAPIClient(AddPostActivityCallback callback){
         this.addCallback = callback;
     }
 
-    public APIClient(CommentsCallback callback) {
+    public void setAPIClient(CommentsCallback callback) {
         this.commentsCallback = callback;
     }
 

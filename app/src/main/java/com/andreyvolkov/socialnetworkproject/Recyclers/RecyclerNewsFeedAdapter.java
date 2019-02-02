@@ -20,7 +20,7 @@ public class RecyclerNewsFeedAdapter extends RecyclerView.Adapter<RecyclerNewsFe
 
     private Context context;
     private MainActivity mainActivity;
-    private ArrayList<PlaceholderPosts> placeholderPosts = new ArrayList<>();
+    private ArrayList<PlaceholderPosts> placeholderPosts;
 
     private final int TYPE_ITEM_BUTTON = 0;
     private final int TYPE_ITEM_POST = 1;
